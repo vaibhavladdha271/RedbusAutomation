@@ -1,0 +1,13 @@
+{
+  "environments": {
+    "dev": {
+      "url": "https://www.redbus.in/"
+    },
+    "qa": {
+      "url": "https://www.redbus.in/"
+    },
+    "uat": {
+      "url": "https://www.redbus.in/"
+    }
+  }
+}
