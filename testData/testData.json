@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "filters": [
+        "Primo Bus",
+        "AC",
+        "SLEEPER"
+      ],
+      "sourceLocation": "Mumbai",
+      "destinationLocation": "Pune",
+      "date": "28",
+      "busName": "Dolphin travel house",
+      "boardingTime": "17:50"
+    }
+  ]
+}

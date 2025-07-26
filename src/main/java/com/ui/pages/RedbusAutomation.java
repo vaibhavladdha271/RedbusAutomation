@@ -1,3 +1,4 @@
+package com.ui.pages;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Arrays;
@@ -17,40 +18,36 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.utility.BrowserUtility;
-
 public class RedbusAutomation {
 
 	public static void main(String[] args) {
-//		ChromeOptions chromeOptions = new ChromeOptions();
-//		chromeOptions.addArguments("--start-maximized");
-		WebDriver driver = new ChromeDriver();
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("--start-maximized");
+		WebDriver driver = new ChromeDriver(chromeOptions);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		BrowserUtility bu = new BrowserUtility(driver);
-		bu.goToWebsite("https://www.redbus.in/");
-		bu.maximizeWindow();
+		driver.get("https://www.redbus.in/");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		List<String> filterList = Arrays.asList("Primo Bus", "AC", "SLEEPER");
 		List<String> seats = Arrays.asList("9", "10");
 		String boardingPoint = "Kandivali";
 		String droppingPoint = "Jagtap Dairy Chowk";
 		int finalPrice;
-//		By fromFieldLocator = By.xpath("//div[contains(@class,'srcDestWrapper') and @role='button']");
-//		By tomorrowButtonLocator = By.xpath("(//div[contains(@class,'buttonsWrapper')]//button)[2]");
-//		By bookingForWomanLocator = By.cssSelector("input#switch");
+		By fromFieldLocator = By.xpath("//div[contains(@class,'srcDestWrapper') and @role='button']");
+		By tomorrowButtonLocator = By.xpath("(//div[contains(@class,'buttonsWrapper')]//button)[2]");
+		By bookingForWomanLocator = By.cssSelector("input#switch");
 		By switchForWomanLocator = By.xpath("//label[contains(@class,'switchLabel')]");
-//		By searchButtonLocator = By.xpath("//button[contains(@class,'searchButtonWrapper')]");
-		bu.clickOnWebElement(driver, fromFieldLocator);
-		selectLocation(driver, wait, "Mumbai", bu);
-		selectLocation(driver, wait, "Pune", bu);
-//		clickOnBookingForWoman(wait, driver, bookingForWomanLocator, bu);
+		WebElement fromField = wait.until(ExpectedConditions.visibilityOfElementLocated(fromFieldLocator));
+		fromField.click();
+		selectLocation(driver, wait, "Mumbai");
+		selectLocation(driver, wait, "Pune");
+//		clickOnBookingForWoman(wait, driver, bookingForWomanLocator);
 		WebElement switchForWoman = driver.findElement(switchForWomanLocator);
 		By busCountLocator = By.xpath("//span[contains(@class,'subtitle')]");
 		if (switchForWoman.getAttribute("class").contains("checked")) {
 //			searchBusForTomorrow(driver, wait, tomorrowButtonLocator);
-			selectDate("25", driver, wait, bu);
-			searchBuses(driver, wait, bu, searchButtonLocator);
-			bu.waitforTextToBePresentInElement(wait, busCountLocator, "buses");
+			selectDate("25", driver, wait);
+			searchBuses(wait);
+			waitforTextToBePresentInElement(wait, busCountLocator, "buses");
 			try {
 				Thread.sleep(1000);
 			} catch (Exception e) {
@@ -58,10 +55,10 @@ public class RedbusAutomation {
 			}
 			searchBusForWomen(wait);
 		} else {
-			selectDate("25", driver, wait, bu);
-			searchBuses(driver, wait, bu, searchButtonLocator);
+			selectDate("25", driver, wait);
+			searchBuses(wait);
 		}
-
+		
 		// Code for selecting filters & bus based on time & price
 		WebElement busCount = null;
 		By tupleWrapper = By.xpath("//li[contains(@class,'tupleWrapper')]");
@@ -69,34 +66,31 @@ public class RedbusAutomation {
 		By dateValueLocator = By.xpath("//span[contains(@class,'doj')]");
 		By busPriceLocator = By.xpath(".//div[contains(@class,'fareWrapper')]/p");
 		By boardTimeLocator = By.xpath(".//div[contains(@class,'timeRow')]/p[contains(@class,'boardingTime')]");
-		selectFilter(wait, driver, filterList, tupleWrapper, bu);
-//		bu.waitforTextToBePresentInElement(wait, busCountLocator, "buses");
-		if (bu.waitforTextToBePresentInElement(wait, busCountLocator, "buses")) {
-			busCount = bu.waitForVisibilityOfElementLocated(driver, busCountLocator);
-//					visibilityOfWebElement(wait, busCountLocator);
+		selectFilter(wait, driver, filterList, tupleWrapper);
+		waitforTextToBePresentInElement(wait, busCountLocator, "buses");
+		if (waitforTextToBePresentInElement(wait, busCountLocator, "buses")) {
+			busCount = visibilityOfWebElement(wait, busCountLocator);
 		}
 		WebElement dateValue = driver.findElement(dateValueLocator);
 		System.out.println(dateValue.getText());
 		System.out.println(busCount.getText());
 		By viewSeatsLocator = By.xpath(".//button[contains(@class,'viewSeatsBtn')]");
 		By endOfListLocator = By.xpath("//span[contains(@class,'endText')]");
-		scrollPage(wait, driver, endOfListLocator, busesNameLocator, js, bu);
-		List<WebElement> busNameList = bu.waitForVisibilityOfAllElementsLocated(driver, busesNameLocator);
-//				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(busesNameLocator));
-		List<WebElement> busPriceList = bu.waitForVisibilityOfAllElementsLocated(driver, busPriceLocator);
-//				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(busPriceLocator));
-		List<WebElement> boardingTimeList = bu.waitForVisibilityOfAllElementsLocated(driver, boardTimeLocator);
-//				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(boardTimeLocator));
-		List<WebElement> viewSeats = bu.waitForVisibilityOfAllElementsLocated(driver, viewSeatsLocator);
-//				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(viewSeatsLocator));
+		scrollPage(wait, driver, endOfListLocator, busesNameLocator, js);
+		List<WebElement> busNameList = wait
+				.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(busesNameLocator));
+		List<WebElement> busPriceList = wait
+				.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(busPriceLocator));
+		List<WebElement> boardingTimeList = wait
+				.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(boardTimeLocator));
+		List<WebElement> viewSeats = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(viewSeatsLocator));
 		selectBusBasedOnTime(busNameList, busPriceList, boardingTimeList, "Dolphin travel house", "17:50", viewSeats,
 				js, wait);
-
+		
 		// Code for selecting seats
 		By seatContainerLocator = By.xpath("//div[@data-autoid='seatContainer']");
 		By seatLocator = By.xpath(".//span[contains(@class,'sleeper__ind-seat-styles')]");
-		WebElement seatContainer = bu.waitForVisibilityOfElementLocated(driver, seatContainerLocator);
-//				visibilityOfWebElement(wait, seatContainerLocator);
+		WebElement seatContainer = visibilityOfWebElement(wait, seatContainerLocator);
 		String noOfSeats = selectSeats(seatContainer, seatLocator, seats, driver);
 		System.out.println("Number of seats selected :" + noOfSeats);
 		By priceWrapperLocator = By.xpath("//div[contains(@class,'priceWrap__ind-seat-styles')]");
@@ -104,10 +98,8 @@ public class RedbusAutomation {
 		By countPriceLocator = By.xpath("//div[contains(@class,'countPriceWrap')]");
 		WebElement countPriceContainer = priceWrapperContainer.findElement(countPriceLocator);
 		By finalPriceButtonLocator = By.xpath("//div[contains(@class,'priceWrap') and @role='button']");
-		finalPrice = Integer
-				.parseInt(getPriceAfterBoardingPoint(priceWrapperContainer, finalPriceButtonLocator, wait, driver)
-						.replaceAll("[^\\d]", ""));
-
+		finalPrice = Integer.parseInt(getPriceAfterBoardingPoint(priceWrapperContainer, finalPriceButtonLocator, wait, driver).replaceAll("[^\\d]", ""));
+		
 		// Code for selecting boarding & dropping points
 		List<WebElement> boardingOrDroppingPointList = driver
 				.findElements(By.xpath("//div[contains(@class,'bpdpList')]"));
@@ -115,16 +107,14 @@ public class RedbusAutomation {
 		WebElement droppingPoints = boardingOrDroppingPointList.get(1);
 		selectPoint(boardingPoints, driver, boardingPoint);
 		selectPoint(droppingPoints, driver, droppingPoint);
-
+		
 		// Code for passenger info
 		String genderValue = "Male";
 		By countryCodeDropdownLocator = By.xpath("//div[contains(@class,'countryCode___')]");
-		WebElement countryCodeDropdown = bu.waitForVisibilityOfElementLocated(driver, countryCodeDropdownLocator);
-//				visibilityOfWebElement(wait, countryCodeDropdownLocator);
+		WebElement countryCodeDropdown = visibilityOfWebElement(wait, countryCodeDropdownLocator);
 		countryCodeDropdown.click();
 		By countryContainerLocator = By.xpath("//div[contains(@class,'countryBodyWrap')]");
-		WebElement countryContainer = bu.waitForVisibilityOfElementLocated(driver, countryContainerLocator);
-//				visibilityOfWebElement(wait, countryContainerLocator);
+		WebElement countryContainer = visibilityOfWebElement(wait, countryContainerLocator);
 		List<WebElement> countryList = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
 				By.xpath("//div[contains(@class,'countryBodyWrap')]//div[contains(@class,'listHeader')]")));
 		countryList.stream().filter(country -> country.getText().trim().equalsIgnoreCase("India (+91)")).findFirst()
@@ -153,47 +143,48 @@ public class RedbusAutomation {
 		addFreeCancellation(driver, "No");
 		addRedBusAssurance(driver, "Yes", finalPrice, countOfSeats);
 		verifyBusDetails(driver);
-		finalPrice = addRedBusDonation(driver, "Yes", finalPrice);
-		WebElement priceAfterAddingPassengerdetails = driver
-				.findElement(By.xpath("//div[contains(@class,'payAmt')]/span"));
-		int price = Integer.parseInt(priceAfterAddingPassengerdetails.getText().replaceAll("[^\\d]", ""));
+		finalPrice=addRedBusDonation(driver,"Yes",finalPrice);
+		WebElement priceAfterAddingPassengerdetails=driver.findElement(By.xpath("//div[contains(@class,'payAmt')]/span"));
+		int price=Integer.parseInt(priceAfterAddingPassengerdetails.getText().replaceAll("[^\\d]", ""));
 		System.out.println("Final ");
-		WebElement continueBookingButton = driver.findElement(By.xpath("//div[contains(@class,'payNowBtn')]/button"));
+		WebElement continueBookingButton=driver.findElement(By.xpath("//div[contains(@class,'payNowBtn')]/button"));
 		continueBookingButton.click();
 		verifyPassengerAndBusDetails(driver);
 	}
-
-	public static void verifyPassengerAndBusDetails(WebDriver driver) {
-		WebElement travelName = driver.findElement(By.xpath("//div[contains(@class,'travelsName___')]"));
+	
+	public static void verifyPassengerAndBusDetails(WebDriver driver)
+	{
+		WebElement travelName=driver.findElement(By.xpath("//div[contains(@class,'travelsName___')]"));
 		System.out.println(travelName.getText());
-		WebElement boardingPoint = driver.findElement(By.xpath("//div[contains(@class,'bpDetailsWrap')]/span"));
+		WebElement boardingPoint=driver.findElement(By.xpath("//div[contains(@class,'bpDetailsWrap')]/span"));
 		System.out.println(boardingPoint.getText());
-		WebElement droppingPoint = driver.findElement(By.xpath("//div[contains(@class,'dpDetailsWrap')]/span"));
+		WebElement droppingPoint=driver.findElement(By.xpath("//div[contains(@class,'dpDetailsWrap')]/span"));
 		System.out.println(droppingPoint.getText());
 	}
-
-	public static int addRedBusDonation(WebDriver driver, String confirmation, int finalPrice) {
-		WebElement redBusCareCheckBox = driver.findElement(By.xpath("//input[@id='redCare']"));
-
-		if (confirmation.equals("Yes")) {
+	public static int addRedBusDonation(WebDriver driver,String confirmation,int finalPrice)
+	{
+		WebElement redBusCareCheckBox=driver.findElement(By.xpath("//input[@id='redCare']"));
+		
+		if(confirmation.equals("Yes"))
+		{
 			redBusCareCheckBox.click();
-			if (driver.findElement(By.xpath("//div[contains(@class,'redCareWrap')]//label[@for='redCare']"))
-					.getAttribute("class").contains("checked")) {
-				WebElement redBusCare = driver.findElement(
-						By.xpath("//div[contains(@class,'redCareWrap')]//div[contains(@class,'listText')]"));
-				String redBusCareText = redBusCare.getText();
-				int redBusCarePrice = Integer.parseInt(redBusCareText.split(" ")[1].replace("₹", ""));
-				finalPrice += redBusCarePrice;
+			if(driver.findElement(By.xpath("//div[contains(@class,'redCareWrap')]//label[@for='redCare']")).getAttribute("class").contains("checked"))
+			{
+				WebElement redBusCare=driver.findElement(By.xpath("//div[contains(@class,'redCareWrap')]//div[contains(@class,'listText')]"));
+				String redBusCareText=redBusCare.getText();
+				int redBusCarePrice=Integer.parseInt(redBusCareText.split(" ")[1].replace("₹",""));
+				finalPrice+=redBusCarePrice;
 			}
-			System.out.println("Bus ticket price after red bus donation :" + finalPrice);
-
-		} else if (confirmation.equals("No")) {
+			System.out.println("Bus ticket price after red bus donation :"+finalPrice);
+			
+		}
+		else if(confirmation.equals("No"))
+		{
 			System.out.println("Red bus donation is not added/considered");
 		}
 		return finalPrice;
-
+		
 	}
-
 	public static void addRedBusAssurance(WebDriver driver, String assuranceConfirmationText, int finalPrice,
 			String countOfSeats) {
 		int insurancePerPerson;
@@ -284,8 +275,8 @@ public class RedbusAutomation {
 				});
 	}
 
-	public static String getPriceAfterBoardingPoint(WebElement priceWrapperContainer, By finalPriceButtonLocator,
-			WebDriverWait wait, WebDriver driver) {
+	public static String getPriceAfterBoardingPoint(WebElement priceWrapperContainer, By finalPriceButtonLocator, WebDriverWait wait,
+			WebDriver driver) {
 		WebElement finalPriceButton = priceWrapperContainer.findElement(finalPriceButtonLocator);
 		finalPriceButton.click();
 		By priceBreakUpContainerLocator = By.xpath("//div[contains(@class,'bottomSheetContainer')]");
@@ -308,11 +299,10 @@ public class RedbusAutomation {
 	}
 
 	public static String selectSeats(WebElement seatContainer, By seatLocator, List<String> seats, WebDriver driver) {
-		By soldSeatsLocator=By.xpath("./span[contains(@class,'sleeperSold')]");
 		AtomicInteger totalPrice = new AtomicInteger(0);
 		List<WebElement> seatsList = seatContainer.findElements(seatLocator);
 		seatsList.stream()
-				.filter(seat -> seat.findElements(soldSeatsLocator).isEmpty())
+				.filter(seat -> seat.findElements(By.xpath("./span[contains(@class,'sleeperSold')]")).isEmpty())
 				.filter(seat -> seats.contains(seat.getAttribute("id"))).forEach(seat -> {
 					System.out.println("Clicking on available seat" + seat.getAttribute("id"));
 					seat.click();
@@ -329,13 +319,17 @@ public class RedbusAutomation {
 		return countOfSeat;
 	}
 
-	public static void searchBuses(WebDriver driver, WebDriverWait wait, BrowserUtility bu, By searchButtonLocator) {
-		bu.clickOnWebElement(driver, searchButtonLocator);
-//		WebElement searchButton = wait.until(ExpectedConditions.visibilityOfElementLocated(searchButtonLocator));
-//		searchButton.click();
+	public static void searchBuses(WebDriverWait wait) {
+
+		By searchButtonLocator = By.xpath("//button[contains(@class,'searchButtonWrapper')]");
+
+		WebElement searchButton = wait.until(ExpectedConditions.visibilityOfElementLocated(searchButtonLocator));
+
+		searchButton.click();
+
 	}
 
-	public void searchBusForWomen(WebDriverWait wait) {
+	public static void searchBusForWomen(WebDriverWait wait) {
 
 		WebElement highlyRatedForWomanFilter = null;
 
@@ -347,23 +341,33 @@ public class RedbusAutomation {
 
 	}
 
-	public static void clickOnBookingForWoman(WebDriverWait wait, WebDriver driver, By locator, BrowserUtility bu) {
+	public static void clickOnBookingForWoman(WebDriverWait wait, WebDriver driver, By locator) {
+
 		By gotItLocator = By.xpath("//div[@data-autoid='womenFunnelInfo']//button[contains(@class,'primaryButton')]");
+
 		WebElement bookingForWoman = driver.findElement(locator);
-		bu.clickOnWebElement(driver, locator);
-//		bookingForWoman.click();
+
+		bookingForWoman.click();
+
 		By bookingForWomanNotificationLocator = By.xpath("//div[contains(@class,'snackbarprimary')]");
-		bu.waitForElementToBeInvisible(driver, bookingForWomanNotificationLocator);
-//		wait.until(ExpectedConditions.invisibilityOfElementLocated(bookingForWomanNotificationLocator));
-		WebElement gotItButton = bu.waitForVisibilityOfElementLocated(driver, gotItLocator);
-//				wait.until(ExpectedConditions.visibilityOfElementLocated(gotItLocator));
-		bu.clickOnWebElement(driver, gotItLocator);
-//		gotItButton.click();
+
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(bookingForWomanNotificationLocator));
+
+		WebElement gotItButton = wait.until(ExpectedConditions.visibilityOfElementLocated(gotItLocator));
+
+		gotItButton.click();
+
 	}
 
-//	public static WebElement visibilityOfWebElement(WebDriverWait wait, By locator) {
-//		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-//	}
+	public static WebElement visibilityOfWebElement(WebDriverWait wait, By locator) {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+
+	public static boolean waitforTextToBePresentInElement(WebDriverWait wait, By locator, String elementText) {
+
+		return wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, elementText));
+
+	}
 
 	public static WebElement waitForElementToBeClickable(WebDriverWait wait, By locator) {
 
@@ -372,35 +376,63 @@ public class RedbusAutomation {
 	}
 
 	public static void scrollPage(WebDriverWait wait, WebDriver driver, By endOfListlocator, By busesNameLocator,
-			JavascriptExecutor js, BrowserUtility bu) {
+
+			JavascriptExecutor js) {
+
 		while (true) {
-			List<WebElement> busNameList = bu.waitForVisibilityOfAllElementsLocated(driver, busesNameLocator);
-//					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(busesNameLocator));
+
+			List<WebElement> busNameList = wait
+
+					.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(busesNameLocator));
+
 			List<WebElement> endOfList = driver.findElements(endOfListlocator);
+
 			if (!endOfList.isEmpty()) {
+
 				break;
+
 			}
+
 			js.executeScript("arguments[0].scrollIntoView({behaviour:'smooth'})",
+
 					busNameList.get(busNameList.size() - 3));
+
 		}
+
 	}
 
 	public static void selectBusBasedOnTime(List<WebElement> busNameList, List<WebElement> busPriceList,
+
 			List<WebElement> boardingTimeList, String busName, String boardTime, List<WebElement> viewSeats,
+
 			JavascriptExecutor js, WebDriverWait wait) {
+
 		IntStream.range(0, busNameList.size())
+
 				.filter(i -> busNameList.get(i).getText().trim().equalsIgnoreCase(busName))
+
 				.filter(i -> boardingTimeList.get(i).getText().equals(boardTime)).findFirst().ifPresent(i -> {
+
 					WebElement viewSeatButton = viewSeats.get(i);
+
 					try {
+
 						js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});",
+
 								viewSeatButton);
+
 						Thread.sleep(1000);
+
 						wait.until(ExpectedConditions.elementToBeClickable(viewSeatButton)).click();
+
 					} catch (Exception e) {
+
 						js.executeScript("arguments[0].click();", viewSeatButton);
+
 					}
+
 				});
+
 	}
 
 	public static void searchBusForTomorrow(WebDriver driver, WebDriverWait wait, By locator) {
@@ -417,66 +449,105 @@ public class RedbusAutomation {
 
 	}
 
-	public static void selectDate(String dateValue, WebDriver driver, WebDriverWait wait, BrowserUtility bu) {
+	public static void selectDate(String dateValue, WebDriver driver, WebDriverWait wait) {
+
 		By dateLocator = By.xpath("//div[contains(@class,'dateInputWrapper') and @role='button']");
+
 		By dateValueLocator = By.xpath("//div[contains(@class,'calendarDate')]");
-		bu.clickOnWebElement(driver, dateLocator);
-//		WebElement dateField = driver.findElement(dateLocator);
-//		dateField.click();
+
+		WebElement dateField = driver.findElement(dateLocator);
+
+		dateField.click();
+
 		By datePickerLocator = By.xpath("//div[contains(@class,'datepicker')]");
-		WebElement datePicker = bu.waitForVisibilityOfElementLocated(driver, datePickerLocator);
-//				wait.until(ExpectedConditions.visibilityOfElementLocated(datePickerLocator));
-		List<WebElement> dateList = bu.waitForVisibilityOfAllElementsLocated(driver, dateValueLocator);
-//				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(dateValueLocator));
+
+		WebElement datePicker = wait.until(ExpectedConditions.visibilityOfElementLocated(datePickerLocator));
+
+		List<WebElement> dateList = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(dateValueLocator));
+
 //		dateList.stream().map(date->date.getText()).forEach(System.out::println);
+
 		dateList.stream().filter(date -> date.getText().equals(dateValue))
+
 				.filter(date -> date.getAttribute("class").contains("available")).findFirst()
+
 				.ifPresent(WebElement::click);
+
 	}
 
 	public static String verifyTomorrowDate() {
+
 		Date today = new Date();
+
 		Calendar calendar = Calendar.getInstance();
+
 		calendar.setTime(today);
+
 		calendar.add(Calendar.DATE, 1);
+
 		Date tomorrow = calendar.getTime();
+
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM,yyyy");
+
 		String tomorrowDate = dateFormat.format(tomorrow);
+
 		return tomorrowDate;
+
 	}
 
-	public static void selectFilter(WebDriverWait wait, WebDriver driver, List<String> filterList, By tupleWrapper,
-			BrowserUtility bu) {
+	public static void selectFilter(WebDriverWait wait, WebDriver driver, List<String> filterList, By tupleWrapper) {
+
 		WebElement filter = null;
+
 		for (String filterValue : filterList) {
+
 			By filterlocator = By.xpath("//div[contains(text(),'" + filterValue + "')]");
-			filter = bu.waitForElementToBeClickable(filterlocator);
-//					wait.until(ExpectedConditions.elementToBeClickable(filterlocator));
-			bu.clickOnWebElement(driver, filterlocator);
-			bu.waitForVisibilityOfAllElementsLocated(driver, tupleWrapper);
-//			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(tupleWrapper));
+
+			filter = wait.until(ExpectedConditions.elementToBeClickable(filterlocator));
+
+			filter.click();
+
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(tupleWrapper));
+
 		}
+
 	}
 
 	public static void selectFilterForWomen() {
 
 	}
 
-	public static void selectLocation(WebDriver driver, WebDriverWait wait, String locationValue, BrowserUtility bu) {
+	public static void selectLocation(WebDriver driver, WebDriverWait wait, String locationValue) {
+
 		By searchSuggestions = By.xpath("//div[contains(@class,'searchSuggestionWrapper')]");
-		WebElement searchSuggestion = bu.waitForVisibilityOfElementLocated(driver, searchSuggestions);
+
+		WebElement searchSuggestion = wait.until(ExpectedConditions.visibilityOfElementLocated(searchSuggestions));
+
 		By inputTextBoxFieldLocator = By.id("srcDest");
-		WebElement fromInputField = bu.waitForVisibilityOfElementLocated(driver, inputTextBoxFieldLocator);
-		bu.enterText(driver, inputTextBoxFieldLocator, locationValue);
+
+		WebElement fromInputField = driver.findElement(inputTextBoxFieldLocator);
+
+		fromInputField.sendKeys(locationValue);
+
 		By searchCategoryLocator = By.xpath("//div[contains(@class,'searchCategory')]");
-		List<WebElement> searchSuggestionsList = bu.waitForNumberOfElementsToBeMoreThan(driver, searchCategoryLocator,
-				2);
+
+		List<WebElement> searchSuggestionsList = wait
+
+				.until(ExpectedConditions.numberOfElementsToBeMoreThan(searchCategoryLocator, 2));
+
 		System.out.println(searchSuggestionsList.size());
+
 		WebElement locationSearchList = searchSuggestionsList.get(0);
+
 		By locationNameLocator = By.xpath(".//div[contains(@class,'listHeader')]");
+
 		List<WebElement> fromFieldSearchResults = locationSearchList.findElements(locationNameLocator);
+
 		System.out.println(fromFieldSearchResults.size());
+
 		fromFieldSearchResults.stream().filter(location -> location.getText().equalsIgnoreCase(locationValue))
+
 				.findFirst().ifPresent(WebElement::click);
+
 	}
 }
