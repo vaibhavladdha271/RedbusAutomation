@@ -5,8 +5,8 @@
     <classes>
       <class name="com.ui.tests.SearchBusTest">
         <methods>
+          <include name="searchBusUsingData"/>
           <include name="setup"/>
-          <include name="searchBus"/>
         </methods>
       </class> <!-- com.ui.tests.SearchBusTest -->
     </classes>

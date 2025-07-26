@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\vaibh\AppData\Local\Temp\testng-eclipse--2005544096\testng-customsuite.xml</span>
+                    <span>C:\Users\vaibh\AppData\Local\Temp\testng-eclipse-667105810\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.ui.tests.SearchBusTest" class="method navigator-link" hash-for-method="searchBus([Primo Bus, AC, SLEEPER], Mumbai, Pune, 28, Dolphin travel house, 17:50)">searchBus([Primo Bus, AC, SLEEPER], Mumbai, Pune, 28, Dolphin travel house, 17:50)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.ui.tests.SearchBusTest" class="method navigator-link" hash-for-method="searchBusUsingData(com.ui.pojo.BusData@625e134e)">searchBusUsingData(com.ui.pojo.BusData@625e134e)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -126,10 +126,10 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="searchBus([Primo Bus, AC, SLEEPER], Mumbai, Pune, 28, Dolphin travel house, 17:50)">
-                  </a> <!-- searchBus([Primo Bus, AC, SLEEPER], Mumbai, Pune, 28, Dolphin travel house, 17:50) -->
-                  <span class="method-name">searchBus</span>
-                  <span class="parameters">([Primo Bus, AC, SLEEPER],Mumbai,Pune,28,Dolphin travel house,17:50)</span>
+                  <a name="searchBusUsingData(com.ui.pojo.BusData@625e134e)">
+                  </a> <!-- searchBusUsingData(com.ui.pojo.BusData@625e134e) -->
+                  <span class="method-name">searchBusUsingData</span>
+                  <span class="parameters">(com.ui.pojo.BusData@625e134e)</span>
                   <em>
 (Verify if search bus functionality is working,filter is applied & view bus popup is opened)                  </em>
                 </div> <!-- method-content -->
@@ -139,7 +139,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\vaibh\AppData\Local\Temp\testng-eclipse--2005544096\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\vaibh\AppData\Local\Temp\testng-eclipse-667105810\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -150,7 +150,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;com.ui.tests.SearchBusTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;searchBus&quot;/&gt;
+          &lt;include name=&quot;searchBusUsingData&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- com.ui.tests.SearchBusTest --&gt;
     &lt;/classes&gt;
@@ -180,7 +180,7 @@
               <span class="test-group-name">e2e</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">searchBus</span>
+                <span class="method-in-group-name">searchBusUsingData</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -188,7 +188,7 @@
               <span class="test-group-name">sanity</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">searchBus</span>
+                <span class="method-in-group-name">searchBusUsingData</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -210,14 +210,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'searchBus')
+data.setCell(0, 1, 'searchBusUsingData')
 data.setCell(0, 2, 'com.ui.tests.SearchBusTest')
-data.setCell(0, 3, 87143);
+data.setCell(0, 3, 196785);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 3 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -232,12 +232,14 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">1 ignored method</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">com.ui.tests.SearchBusTest</span>
               <div class="ignored-methods-div">
+                <span class="ignored-method-name">searchBus</span>
+                <br/>
                 <span class="ignored-method-name">verifyPriceAfterSelectingSeats</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
@@ -256,8 +258,8 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">searchBus([Primo Bus, AC, SLEEPER], Mumbai, Pune, 28, Dolphin travel house, 17:50)</span>
-                <span class="method-start">2374 ms</span>
+                <span class="method-name">searchBusUsingData(com.ui.pojo.BusData@625e134e)</span>
+                <span class="method-start">6135 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
