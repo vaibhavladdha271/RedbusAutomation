@@ -1,58 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-26T00:58:06 IST" name="Default suite" finished-at="2025-07-26T00:59:35 IST" duration-ms="89626">
+  <suite started-at="2025-07-26T12:38:21 IST" name="Default suite" finished-at="2025-07-26T12:41:44 IST" duration-ms="203141">
     <groups>
       <group name="sanity">
-        <method signature="SearchBusTest.searchBus(java.util.List,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.ui.tests.SearchBusTest@79079097]" name="searchBus" class="com.ui.tests.SearchBusTest"/>
+        <method signature="SearchBusTest.searchBusUsingData(com.ui.pojo.BusData)[pri:0, instance:com.ui.tests.SearchBusTest@62ddbd7e]" name="searchBusUsingData" class="com.ui.tests.SearchBusTest"/>
       </group> <!-- sanity -->
       <group name="e2e">
-        <method signature="SearchBusTest.searchBus(java.util.List,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.ui.tests.SearchBusTest@79079097]" name="searchBus" class="com.ui.tests.SearchBusTest"/>
+        <method signature="SearchBusTest.searchBusUsingData(com.ui.pojo.BusData)[pri:0, instance:com.ui.tests.SearchBusTest@62ddbd7e]" name="searchBusUsingData" class="com.ui.tests.SearchBusTest"/>
       </group> <!-- e2e -->
     </groups>
-    <test started-at="2025-07-26T00:58:06 IST" name="Default test" finished-at="2025-07-26T00:59:35 IST" duration-ms="89626">
+    <test started-at="2025-07-26T12:38:21 IST" name="Default test" finished-at="2025-07-26T12:41:44 IST" duration-ms="203141">
       <class name="com.ui.tests.SearchBusTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.ui.tests.SearchBusTest@79079097]" started-at="2025-07-26T00:58:06 IST" name="setup" description="load the homepage of website" finished-at="2025-07-26T00:58:08 IST" duration-ms="2372" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.ui.tests.SearchBusTest@62ddbd7e]" started-at="2025-07-26T12:38:22 IST" name="setup" description="load the homepage of website" finished-at="2025-07-26T12:38:28 IST" duration-ms="6133" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="searchBus(java.util.List,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.ui.tests.SearchBusTest@79079097]" started-at="2025-07-26T00:58:08 IST" name="searchBus" description="Verify if search bus functionality is working,filter is applied &amp; view bus popup is opened" data-provider="BusSearchData" finished-at="2025-07-26T00:59:35 IST" duration-ms="87143" status="PASS">
+        <test-method signature="searchBusUsingData(com.ui.pojo.BusData)[pri:0, instance:com.ui.tests.SearchBusTest@62ddbd7e]" started-at="2025-07-26T12:38:28 IST" name="searchBusUsingData" description="Verify if search bus functionality is working,filter is applied &amp; view bus popup is opened" data-provider="BusSearchData" finished-at="2025-07-26T12:41:44 IST" duration-ms="196785" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[Primo Bus, AC, SLEEPER]]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Mumbai]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Pune]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[28]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Dolphin travel house]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[17:50]]>
+                <![CDATA[com.ui.pojo.BusData@625e134e]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- searchBus -->
+        </test-method> <!-- searchBusUsingData -->
       </class> <!-- com.ui.tests.SearchBusTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

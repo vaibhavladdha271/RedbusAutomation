@@ -25,36 +25,17 @@ public class SearchBusTest {
 		homePage.maximizeWindow();
 	}
 	
-	@DataProvider(name="BusSearchData")
-	public Object[][] busSearchData(){
-		TestData testData=TestDataProvider.getUserData("testData");
-		List<BusData> dataList=testData.getData();
-		Object[][] provider=new Object[dataList.size()][6];
-		for(int i=0;i<dataList.size();i++)
-		{
-			BusData record=dataList.get(i);
-			provider[i][0]=record.getFilters();
-			provider[i][1]=record.getSourceLocation();
-			provider[i][2]=record.getDestinationLocation();
-			provider[i][3]=record.getDate();
-			provider[i][4]=record.getBusName();
-			provider[i][5]=record.getBoardingTime();
-		}
-		return provider;
- 	}
-	
-	@Test(dataProvider="BusSearchData",description="Verify if search bus functionality is working,filter is applied & view bus popup is opened",groups= {"e2e","sanity"})
-	public void searchBus(List<String> filters,String sourceLocation,String destinationLocation,String date,String busName,String boardingTime) {
+	@Test(dataProviderClass=com.ui.dataproviders.TestDataProvider.class,dataProvider="BusSearchData",description="Verify if search bus functionality is working,filter is applied & view bus popup is opened",groups= {"e2e","sanity"})
+	public void searchBusUsingData(BusData busData) {
 //		List<String> filterList = Arrays.asList("Primo Bus", "AC", "SLEEPER");
 	    homePage.clickOnSourceOrDestinationField(homePage.getDriver())
-	    .selectLocation(homePage.getDriver(),sourceLocation)
-		.selectLocation(homePage.getDriver(), destinationLocation)
-		.selectDate(date, homePage.getDriver())
+	    .selectLocation(homePage.getDriver(),busData.getSourceLocation())
+		.selectLocation(homePage.getDriver(), busData.getDestinationLocation())
+		.selectDate(busData.getDate(), homePage.getDriver())
 		.clickOnSearchBusButton(homePage.getDriver())
-		.selectFilter(homePage.getDriver(),filters)
-		.clickOnViewSeatsButton(homePage.getDriver(), busName, boardingTime);
+		.selectFilter(homePage.getDriver(),busData.getFilters())
+		.clickOnViewSeatsButton(homePage.getDriver(), busData.getBusName(), busData.getBoardingTime());
 	}
-	
 	@Test(description="Verify the price after selecting seats & number of seats selected",groups= {"sanity"})
 	public  void verifyPriceAfterSelectingSeats(List<String> filters,String sourceLocation,String destinationLocation,String date,String busName,String boardingTime)
 	{
