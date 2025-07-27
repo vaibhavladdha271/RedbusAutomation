@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Redbus Automation Suite" parallel="methods" thread-count="2" verbose="1">
+  <test name="UI Automation">
+  <parameter name="browser" value="firefox"/>
+   <parameter name="isLambdaTest" value="false"/>
+  <parameter name="isHeadless" value="false"/>
+    <classes>
+       <class name="com.ui.tests.HomePageTest"/>
+    </classes>
+  </test>
+
+</suite>

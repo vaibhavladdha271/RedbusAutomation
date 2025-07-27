@@ -10,6 +10,11 @@ public class BusData {
 	private String date;
 	private String busName;
 	private String boardingTime;
+	private List<String> seats;
+	
+	public List<String> getSeats(){
+		return seats;
+	}
 	public List<String> getFilters() {
 		return filters;
 	}

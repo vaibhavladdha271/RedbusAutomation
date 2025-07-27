@@ -33,7 +33,7 @@ public class SearchBusesPage extends BrowserUtility {
 	}
 
 	public void waitForBusCount() {
-		waitforTextToBePresentInElement(getDriver(), busCountLocator, "buses");
+		waitforTextToBePresentInElement(busCountLocator, "buses");
 	}
 
 	public String getBusCount() {
@@ -47,11 +47,11 @@ public class SearchBusesPage extends BrowserUtility {
 		highlyRatedForWomanFilter.click();
 	}
 
-	public SearchBusesPage scrollPage(WebDriver driver,
+	public SearchBusesPage scrollPage(
 			JavascriptExecutor js,List<WebElement> busNameList) {
 		while (true) {
-			busNameList=waitForVisibilityOfAllElementsLocated(driver, busesNameLocator);
-			List<WebElement> endOfList = driver.findElements(endOfListLocator);
+			busNameList=waitForVisibilityOfAllElementsLocated(busesNameLocator);
+			List<WebElement> endOfList = driver.get().findElements(endOfListLocator);
 //					waitForVisibilityOfAllElementsLocated(driver, endOfListLocator);
 			if (!endOfList.isEmpty()) {
 				break;
@@ -62,7 +62,7 @@ public class SearchBusesPage extends BrowserUtility {
 		return new SearchBusesPage(getDriver());
 	}
 
-	public void selectBusBasedOnTime(WebDriver driver,List<WebElement> busNameList, List<WebElement> busPriceList,
+	public void selectBusBasedOnTime(List<WebElement> busNameList, List<WebElement> busPriceList,
 			List<WebElement> boardingTimeList, String busName, String boardingTime, List<WebElement> viewSeats,
 			JavascriptExecutor js) {
 		
@@ -74,7 +74,7 @@ public class SearchBusesPage extends BrowserUtility {
 						js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});",
 								viewSeatButton);
 						Thread.sleep(1000);
-						waitForElementToBeClickable(driver,viewSeatButton).click();
+						waitForElementToBeClickable(viewSeatButton).click();
 					} catch (Exception e) {
 						js.executeScript("arguments[0].click();", viewSeatButton);
 					}
@@ -82,17 +82,17 @@ public class SearchBusesPage extends BrowserUtility {
 		
 	}
 
-	public SelectSeatsPage clickOnViewSeatsButton(WebDriver driver,String busName,String boardingTime) {
-		List<WebElement> busNameList = waitForVisibilityOfAllElementsLocated(driver, busesNameLocator);
-		List<WebElement> busPriceList = waitForVisibilityOfAllElementsLocated(driver, busPriceLocator);
-		List<WebElement> boardingTimeList = waitForVisibilityOfAllElementsLocated(driver, boardTimeLocator);
-		List<WebElement> viewSeats = waitForVisibilityOfAllElementsLocated(driver, viewSeatsLocator);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		scrollPage(driver, js,busNameList);
-		selectBusBasedOnTime(driver,busNameList,busPriceList, boardingTimeList, busName, boardingTime, viewSeats, js);
+	public SelectSeatsPage clickOnViewSeatsButton(String busName,String boardingTime) {
+		List<WebElement> busNameList = waitForVisibilityOfAllElementsLocated(busesNameLocator);
+		List<WebElement> busPriceList = waitForVisibilityOfAllElementsLocated(busPriceLocator);
+		List<WebElement> boardingTimeList = waitForVisibilityOfAllElementsLocated(boardTimeLocator);
+		List<WebElement> viewSeats = waitForVisibilityOfAllElementsLocated(viewSeatsLocator);
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();
+		scrollPage(js,busNameList);
+		selectBusBasedOnTime(busNameList,busPriceList, boardingTimeList, busName, boardingTime, viewSeats, js);
 		return new SelectSeatsPage(getDriver());
 	}
-	public SearchBusesPage selectFilter(WebDriver driver, List<String> filterList) {
+	public SearchBusesPage selectFilter(List<String> filterList) {
 		String busCount=getBusCount();
 		System.out.println("Number of buses :"+busCount);
 		WebElement filter = null;
@@ -100,7 +100,7 @@ public class SearchBusesPage extends BrowserUtility {
 			By filterlocator = By.xpath("//div[contains(text(),'" + filterValue + "')]");
 			filter = waitForElementToBeClickable(filterlocator);
 			filter.click();
-			waitForVisibilityOfAllElementsLocated(driver, tupleWrapper);
+			waitForVisibilityOfAllElementsLocated(tupleWrapper);
 //			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(tupleWrapper));
 		}
 		return new SearchBusesPage(getDriver());

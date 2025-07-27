@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="TestSuite" time="325.401" tests="2" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\admin\eclipse-workspace\RedbusAutomation\target\test-classes;C:\Users\admin\eclipse-workspace\RedbusAutomation\target\classes;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-java\4.34.0\selenium-java-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-api\4.34.0\selenium-api-4.34.0.jar;C:\Users\admin\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.34.0\selenium-chrome-driver-4.34.0.jar;C:\Users\admin\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.34.0\selenium-chromium-driver-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-json\4.34.0\selenium-json-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.34.0\selenium-manager-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v136\4.34.0\selenium-devtools-v136-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v137\4.34.0\selenium-devtools-v137-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v138\4.34.0\selenium-devtools-v138-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.34.0\selenium-edge-driver-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.34.0\selenium-firefox-driver-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-http\4.34.0\selenium-http-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.34.0\selenium-ie-driver-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.34.0\selenium-remote-driver-4.34.0.jar;C:\Users\admin\.m2\repository\com\google\guava\guava\33.4.8-jre\guava-33.4.8-jre.jar;C:\Users\admin\.m2\repository\com\google\guava\failureaccess\1.0.3\failureaccess-1.0.3.jar;C:\Users\admin\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\admin\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-api\1.51.0\opentelemetry-api-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-context\1.51.0\opentelemetry-context-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.51.0\opentelemetry-exporter-logging-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.51.0\opentelemetry-sdk-common-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.51.0\opentelemetry-sdk-extension-autoconfigure-spi-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.51.0\opentelemetry-sdk-extension-autoconfigure-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.51.0\opentelemetry-sdk-trace-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.51.0\opentelemetry-sdk-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.51.0\opentelemetry-sdk-metrics-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.51.0\opentelemetry-sdk-logs-1.51.0.jar;C:\Users\admin\.m2\repository\net\bytebuddy\byte-buddy\1.17.6\byte-buddy-1.17.6.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-os\4.34.0\selenium-os-4.34.0.jar;C:\Users\admin\.m2\repository\org\apache\commons\commons-exec\1.5.0\commons-exec-1.5.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.34.0\selenium-safari-driver-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-support\4.34.0\selenium-support-4.34.0.jar;C:\Users\admin\.m2\repository\org\testng\testng\7.11.0\testng-7.11.0.jar;C:\Users\admin\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\admin\.m2\repository\org\jcommander\jcommander\1.83\jcommander-1.83.jar;C:\Users\admin\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\admin\.m2\repository\com\google\code\gson\gson\2.13.1\gson-2.13.1.jar;C:\Users\admin\.m2\repository\com\google\errorprone\error_prone_annotations\2.38.0\error_prone_annotations-2.38.0.jar;C:\Users\admin\.m2\repository\org\apache\logging\log4j\log4j-core\2.25.1\log4j-core-2.25.1.jar;C:\Users\admin\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.1\log4j-api-2.25.1.jar;C:\Users\admin\.m2\repository\com\aventstack\extentreports\5.1.2\extentreports-5.1.2.jar;C:\Users\admin\.m2\repository\io\reactivex\rxjava3\rxjava\3.1.6\rxjava-3.1.6.jar;C:\Users\admin\.m2\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;C:\Users\admin\.m2\repository\org\freemarker\freemarker\2.3.32\freemarker-2.3.32.jar;C:\Users\admin\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;C:\Users\admin\.m2\repository\commons-io\commons-io\2.20.0\commons-io-2.20.0.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.boot.library.path" value="C:\Users\admin\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.8.v20250724-1412\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\admin\AppData\Local\Temp\surefire16406136960213351207\surefirebooter-20250728000403042_3.jar C:\Users\admin\AppData\Local\Temp\surefire16406136960213351207 2025-07-28T00-04-00_442-jvmRun1 surefire-20250728000403042_1tmp surefire_0-20250728000403042_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\admin\eclipse-workspace\RedbusAutomation\target\test-classes;C:\Users\admin\eclipse-workspace\RedbusAutomation\target\classes;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-java\4.34.0\selenium-java-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-api\4.34.0\selenium-api-4.34.0.jar;C:\Users\admin\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.34.0\selenium-chrome-driver-4.34.0.jar;C:\Users\admin\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.34.0\selenium-chromium-driver-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-json\4.34.0\selenium-json-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.34.0\selenium-manager-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v136\4.34.0\selenium-devtools-v136-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v137\4.34.0\selenium-devtools-v137-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v138\4.34.0\selenium-devtools-v138-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.34.0\selenium-edge-driver-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.34.0\selenium-firefox-driver-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-http\4.34.0\selenium-http-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.34.0\selenium-ie-driver-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.34.0\selenium-remote-driver-4.34.0.jar;C:\Users\admin\.m2\repository\com\google\guava\guava\33.4.8-jre\guava-33.4.8-jre.jar;C:\Users\admin\.m2\repository\com\google\guava\failureaccess\1.0.3\failureaccess-1.0.3.jar;C:\Users\admin\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\admin\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-api\1.51.0\opentelemetry-api-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-context\1.51.0\opentelemetry-context-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.51.0\opentelemetry-exporter-logging-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.51.0\opentelemetry-sdk-common-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.51.0\opentelemetry-sdk-extension-autoconfigure-spi-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.51.0\opentelemetry-sdk-extension-autoconfigure-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.51.0\opentelemetry-sdk-trace-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.51.0\opentelemetry-sdk-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.51.0\opentelemetry-sdk-metrics-1.51.0.jar;C:\Users\admin\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.51.0\opentelemetry-sdk-logs-1.51.0.jar;C:\Users\admin\.m2\repository\net\bytebuddy\byte-buddy\1.17.6\byte-buddy-1.17.6.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-os\4.34.0\selenium-os-4.34.0.jar;C:\Users\admin\.m2\repository\org\apache\commons\commons-exec\1.5.0\commons-exec-1.5.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.34.0\selenium-safari-driver-4.34.0.jar;C:\Users\admin\.m2\repository\org\seleniumhq\selenium\selenium-support\4.34.0\selenium-support-4.34.0.jar;C:\Users\admin\.m2\repository\org\testng\testng\7.11.0\testng-7.11.0.jar;C:\Users\admin\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\admin\.m2\repository\org\jcommander\jcommander\1.83\jcommander-1.83.jar;C:\Users\admin\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\admin\.m2\repository\com\google\code\gson\gson\2.13.1\gson-2.13.1.jar;C:\Users\admin\.m2\repository\com\google\errorprone\error_prone_annotations\2.38.0\error_prone_annotations-2.38.0.jar;C:\Users\admin\.m2\repository\org\apache\logging\log4j\log4j-core\2.25.1\log4j-core-2.25.1.jar;C:\Users\admin\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.1\log4j-api-2.25.1.jar;C:\Users\admin\.m2\repository\com\aventstack\extentreports\5.1.2\extentreports-5.1.2.jar;C:\Users\admin\.m2\repository\io\reactivex\rxjava3\rxjava\3.1.6\rxjava-3.1.6.jar;C:\Users\admin\.m2\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;C:\Users\admin\.m2\repository\org\freemarker\freemarker\2.3.32\freemarker-2.3.32.jar;C:\Users\admin\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;C:\Users\admin\.m2\repository\commons-io\commons-io\2.20.0\commons-io-2.20.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\admin"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="C:\Users\admin\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.8.v20250724-1412\jre"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\admin\eclipse-workspace\RedbusAutomation"/>
+    <property name="style.color" value="always"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\admin\AppData\Local\Temp\surefire16406136960213351207\surefirebooter-20250728000403042_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.8+9-LTS"/>
+    <property name="user.name" value="admin"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.8+9"/>
+    <property name="localRepository" value="C:\Users\admin\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\admin\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="C:\Users\admin\eclipse-workspace\RedbusAutomation"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\admin\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.8.v20250724-1412\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/admin/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.8.v20250724-1412/jre/bin/server;C:/Users/admin/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.8.v20250724-1412/jre/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Users\admin\AppData\Local\Microsoft\WindowsApps;;C:\WINDOWS\System32;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.8+9-LTS"/>
+    <property name="propertyName" value="firefox"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="searchBusUsingData[com.ui.pojo.BusData@6136998b](1)" classname="com.ui.tests.HomePageTest" time="256.314">
+    <system-out><![CDATA[2025-07-28 00:04:05 [main] INFO com.ui.listeners.TestListener::onStart 54 Test suite started 
+2025-07-28 00:04:05 [main] INFO com.ui.tests.HomePageTest::setup 40 Load redbus homepage 
+2025-07-28 00:04:06 [main] INFO com.ui.pages.HomePage::<init> 63 Launching browser for :CHROME 
+2025-07-28 00:04:07 [main] INFO com.ui.listeners.TestListener::onTestStart 24 searchBusUsingData 
+2025-07-28 00:04:07 [main] INFO com.ui.listeners.TestListener::onTestStart 25 Verify if search bus functionality is working,filter is applied & view bus popup is opened 
+2025-07-28 00:04:07 [main] INFO com.ui.listeners.TestListener::onTestStart 26 [e2e, sanity] 
+2025-07-28 00:04:07 [main] INFO com.ui.tests.HomePageTest::searchBusUsingData 23 Started red bus application 
+2025-07-28 00:04:08 [main] INFO com.ui.pages.HomePage::selectLocation 76 Located element with locator :[[ChromeDriver: chrome on windows (18c5a98b67517bce2f0bebbaebbd50a1)] -> id: srcDest] 
+2025-07-28 00:04:08 [main] INFO com.ui.pages.HomePage::selectLocation 78 Value entered in locator [[ChromeDriver: chrome on windows (18c5a98b67517bce2f0bebbaebbd50a1)] -> id: srcDest] is :Mumbai 
+2025-07-28 00:04:09 [main] INFO com.ui.pages.HomePage::selectLocation 80 Located the search list with size: 3 
+2025-07-28 00:04:09 [main] INFO com.ui.pages.HomePage::selectLocation 83 Search result available for from field :2 
+2025-07-28 00:04:09 [main] INFO com.ui.pages.HomePage::selectLocation 86 location is selected 
+2025-07-28 00:04:09 [main] INFO com.ui.pages.HomePage::selectLocation 76 Located element with locator :[[ChromeDriver: chrome on windows (18c5a98b67517bce2f0bebbaebbd50a1)] -> id: srcDest] 
+2025-07-28 00:04:10 [main] INFO com.ui.pages.HomePage::selectLocation 78 Value entered in locator [[ChromeDriver: chrome on windows (18c5a98b67517bce2f0bebbaebbd50a1)] -> id: srcDest] is :Pune 
+2025-07-28 00:04:11 [main] INFO com.ui.pages.HomePage::selectLocation 80 Located the search list with size: 3 
+2025-07-28 00:04:11 [main] INFO com.ui.pages.HomePage::selectLocation 83 Search result available for from field :1 
+2025-07-28 00:04:11 [main] INFO com.ui.pages.HomePage::selectLocation 86 location is selected 
+2025-07-28 00:04:12 [main] INFO com.ui.pages.HomePage::selectDate 110 Date element is located 
+2025-07-28 00:04:12 [main] INFO com.ui.pages.HomePage::selectDate 115 Date is selected 
+2025-07-28 00:04:12 [main] INFO com.ui.pages.HomePage::searchBuses 60 Finding element with locator: By.xpath: //button[contains(@class,'searchButtonWrapper')] 
+2025-07-28 00:04:13 [main] INFO com.ui.pages.HomePage::clickOnSearchBusButton 54 Element found with locator: By.xpath: //button[contains(@class,'searchButtonWrapper')]& click action is performed 
+Number of buses :499 buses
+2025-07-28 00:08:24 [main] INFO com.ui.tests.HomePageTest::searchBusUsingData 31 View seats button is clicked 
+]]></system-out>
+    <system-err><![CDATA[SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+]]></system-err>
+  </testcase>
+  <testcase name="verifyPriceAfterSelectingSeats[com.ui.pojo.BusData@48715ab](1)" classname="com.ui.tests.HomePageTest" time="63.163">
+    <system-out><![CDATA[2025-07-28 00:08:24 [main] INFO com.ui.listeners.TestListener::onTestSuccess 31 searchBusUsingData Passed 
+2025-07-28 00:08:24 [main] INFO com.ui.tests.HomePageTest::setup 40 Load redbus homepage 
+2025-07-28 00:08:24 [main] INFO com.ui.pages.HomePage::<init> 63 Launching browser for :CHROME 
+2025-07-28 00:08:25 [main] INFO com.ui.listeners.TestListener::onTestStart 24 verifyPriceAfterSelectingSeats 
+2025-07-28 00:08:25 [main] INFO com.ui.listeners.TestListener::onTestStart 25 Verify the price after selecting seats & number of seats selected 
+2025-07-28 00:08:25 [main] INFO com.ui.listeners.TestListener::onTestStart 26 [sanity] 
+2025-07-28 00:08:26 [main] INFO com.ui.pages.HomePage::selectLocation 76 Located element with locator :[[ChromeDriver: chrome on windows (a801851af490071e01aa19ea741e0c9b)] -> id: srcDest] 
+2025-07-28 00:08:26 [main] INFO com.ui.pages.HomePage::selectLocation 78 Value entered in locator [[ChromeDriver: chrome on windows (a801851af490071e01aa19ea741e0c9b)] -> id: srcDest] is :Mumbai 
+2025-07-28 00:08:27 [main] INFO com.ui.pages.HomePage::selectLocation 80 Located the search list with size: 3 
+2025-07-28 00:08:27 [main] INFO com.ui.pages.HomePage::selectLocation 83 Search result available for from field :2 
+2025-07-28 00:08:27 [main] INFO com.ui.pages.HomePage::selectLocation 86 location is selected 
+2025-07-28 00:08:27 [main] INFO com.ui.pages.HomePage::selectLocation 76 Located element with locator :[[ChromeDriver: chrome on windows (a801851af490071e01aa19ea741e0c9b)] -> id: srcDest] 
+2025-07-28 00:08:28 [main] INFO com.ui.pages.HomePage::selectLocation 78 Value entered in locator [[ChromeDriver: chrome on windows (a801851af490071e01aa19ea741e0c9b)] -> id: srcDest] is :Pune 
+2025-07-28 00:08:29 [main] INFO com.ui.pages.HomePage::selectLocation 80 Located the search list with size: 3 
+2025-07-28 00:08:29 [main] INFO com.ui.pages.HomePage::selectLocation 83 Search result available for from field :1 
+2025-07-28 00:08:29 [main] INFO com.ui.pages.HomePage::selectLocation 86 location is selected 
+2025-07-28 00:08:30 [main] INFO com.ui.pages.HomePage::selectDate 110 Date element is located 
+2025-07-28 00:08:30 [main] INFO com.ui.pages.HomePage::selectDate 115 Date is selected 
+2025-07-28 00:08:30 [main] INFO com.ui.pages.HomePage::searchBuses 60 Finding element with locator: By.xpath: //button[contains(@class,'searchButtonWrapper')] 
+2025-07-28 00:08:31 [main] INFO com.ui.pages.HomePage::clickOnSearchBusButton 54 Element found with locator: By.xpath: //button[contains(@class,'searchButtonWrapper')]& click action is performed 
+Number of buses :499 buses
+Clicking on available seat16
+Seat ID: 16|Seat price: 965
+Clicking on available seat15
+Seat ID: 15|Seat price: 965
+Total price for selected seats: 1930
+]]></system-out>
+  </testcase>
+</testsuite>

@@ -10,7 +10,8 @@
       "destinationLocation": "Pune",
       "date": "28",
       "busName": "Dolphin travel house",
-      "boardingTime": "17:50"
+      "boardingTime": "17:50",
+	  "seats":["15","16"]
     }
   ]
 }

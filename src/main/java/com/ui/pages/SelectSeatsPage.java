@@ -29,9 +29,9 @@ public class SelectSeatsPage extends BrowserUtility{
 	private static By selectBoardingOrDroppingPointLocator = By.xpath(
 			"//div[contains(@class,'priceWrap__ind-seat-styles')]//button[contains(@class,'primaryButton')]");
 
-	public SelectSeatsPage selectSeats(List<String> seats, WebDriver driver) {
+	public SelectSeatsPage selectSeats(List<String> seats) {
 		AtomicInteger totalPrice = new AtomicInteger(0);
-		WebElement seatContainer = waitForVisibilityOfElementLocated(driver, seatContainerLocator);
+		WebElement seatContainer = waitForVisibilityOfElementLocated(seatContainerLocator);
 		List<WebElement> seatsList = seatContainer.findElements(seatLocator);
 		seatsList.stream()
 				.filter(seat -> seat.findElements(soldSeatsLocator).isEmpty())
@@ -48,12 +48,12 @@ public class SelectSeatsPage extends BrowserUtility{
 		return new SelectSeatsPage(getDriver());
 	}
 	
-	public int verifySelectedSeatsCount(WebDriver driver) {
-		int countOfSeat = Integer.parseInt(getSeatCount(driver));
+	public int verifySelectedSeatsCount() {
+		int countOfSeat = Integer.parseInt(getSeatCount());
 		return countOfSeat;
 	}
-	public String getSeatCount(WebDriver driver) {
-		WebElement seatCount = driver.findElement(countOfSeatsLocator);
+	public String getSeatCount() {
+		WebElement seatCount = driver.get().findElement(countOfSeatsLocator);
 		List<String> seatCountDetails = Arrays.asList(seatCount.getText().split(" "));
 		return seatCountDetails.get(0);
 	}
@@ -62,16 +62,16 @@ public class SelectSeatsPage extends BrowserUtility{
 //		WebElement priceWrapperContainer = driver.findElement(priceWrapperLocator);
 //		WebElement priceBreakUpButton =priceWrapperContainer.findElement(priceButtonLocator);
 		WebElement selectBoardingOrDroppingPointButton = waitForElementToBeClickable(selectBoardingOrDroppingPointLocator);
-		clickOnElementUsingActions(driver, selectBoardingOrDroppingPointButton);
+		clickOnElementUsingActions(selectBoardingOrDroppingPointButton);
 		return new SelectSeatsPage(getDriver());
 	}
 	
-	public String verifyPriceBreakPopup(WebDriver driver) {
-		clickOnWebElement(driver, priceButtonLocator);
-		WebElement priceBreakUpContainer = waitForVisibilityOfElementLocated(driver, priceBreakUpPopupLocator);
+	public String verifyPriceBreakPopup() {
+		clickOnWebElement(priceButtonLocator);
+		WebElement priceBreakUpContainer = waitForVisibilityOfElementLocated(priceBreakUpPopupLocator);
 		String price = priceBreakUpContainer.findElement(priceLocator).getText();
 		WebElement closeButton = priceBreakUpContainer.findElement(priceBreakupPopupCloseButtonLocator);
-		clickOnElementUsingActions(driver, closeButton);
+		clickOnElementUsingActions(closeButton);
 		return price;
 	}
 }
