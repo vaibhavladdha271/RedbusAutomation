@@ -21,7 +21,7 @@ import static com.utility.PropertiesUtil.*;
 
 public class HomePage extends BrowserUtility {
 
-	Logger logger = LoggerUtility.getLogger(this.getClass());
+	Logger logger =LoggerUtility.getLogger(this.getClass());
 	private static By searchSuggestions = By.xpath("//div[contains(@class,'searchSuggestionWrapper')]");
 	private static By fromFieldLocator = By.xpath("//div[contains(@class,'srcDestWrapper') and @role='button']");
 	private static By tomorrowButtonLocator = By.xpath("(//div[contains(@class,'buttonsWrapper')]//button)[2]");
