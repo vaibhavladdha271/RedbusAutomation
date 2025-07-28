@@ -16,7 +16,7 @@ public class TestDataProvider {
 
 	public static TestData getUserData(String fileName) {
 		Gson gson = new Gson();
-		File testFile = new File(System.getProperty("user.dir") +"\\testData\\" + fileName + ".json");
+		File testFile = new File(System.getProperty("user.dir") +"//testData//" + fileName + ".json");
 		FileReader reader = null;
 		try {
 			reader = new FileReader(testFile);
